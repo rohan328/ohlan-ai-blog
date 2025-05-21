@@ -5,9 +5,9 @@ const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
   }),
 });
 
-export const collections = { posts };
+export const collections = {
+  posts,
+};
