@@ -1,0 +1,14 @@
+{
+  "name": "ohlan-ai-blog",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "generate": "node scripts/generateContent.js"
+  },
+  "dependencies": {
+    "astro": "^4.0.0",
+    "@astrojs/tailwind": "^3.0.0",
+    "openai": "^4.0.0"
+  }
+}
