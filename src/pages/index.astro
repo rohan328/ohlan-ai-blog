@@ -1,14 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const posts = await Astro.glob('../../content/posts/*.md');
 ---
 
-<Layout title="Welcome to Ohlan AI Blog">
+<Layout title="Ohlan AI Blog">
   <h1 class="text-3xl font-bold">Ohlan AI Blog</h1>
-  <p class="mt-4 text-gray-400">Automatically generated articles about AI tools, SaaS apps, and crypto trends.</p>
+  <p class="mt-4 text-gray-400">Daily AI-generated articles on AI tools, SaaS, and crypto.</p>
 
   <ul class="mt-6 space-y-2">
-    {Astro.glob('../content/posts/*.md').map(post => (
-      <li><a href={`/posts/${post.slug}/`} class="text-blue-400 underline">{post.title}</a></li>
-    ))}
+    {posts.length === 0 ? (
+      <li>No posts found.</li>
+    ) : (
+      posts.map(post => (
+        <li>
+          <a href={`/posts/${post.slug}/`} class="text-blue-400 underline">
+            {post.frontmatter.title}
+          </a>
+        </li>
+      ))
+    )}
   </ul>
 </Layout>
